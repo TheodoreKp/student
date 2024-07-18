@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: school-info
+  profiles:
+    active: dev
+  data:
+    mongodb:
+      database: db_school_info_api
+      auto-index-creation: true
+      host: localhost
+  #      uri: mongodb+srv://verim:2lKv0Xc0QAKCEqdR@event.hxkuea1.mongodb.net/?retryWrites=true&w=majority
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+server:
+  port: 8000
+
+access-token:
+  private: ${ACCESS_TOKEN_PRIVATE_KEY_PATH}
+  public: ${ACCESS_TOKEN_PUBLIC_KEY_PATH}
+
+refresh-token:
+  public: ${REFRESH_TOKEN_PRIVATE_KEY_PATH}
+  private: ${REFRESH_TOKEN_PUBLIC_KEY_PATH}
+
+logging:
+  level:
+    com.fasterxml.jackson: TRACE
+    org.springframework.security: TRACE
+    org.springframework.messaging: TRACE
+    org.springframework.data.mongodb: TRACE
+
+aws:
+  access-key: AKIA3ZOOFHOXOU7DCLXI
+  secret-key: 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
+  bucket-name: school-info-connect
